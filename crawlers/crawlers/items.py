@@ -18,6 +18,11 @@ class SchoolItem(Item):
   email = Field()
   address = Field()
   principal = Field()
+  schoolCode = Field()
+  schoolType = Field()
   
   
+class PrincipalItem(Item):
+  schoolCode = Field()
+  name = Field()
   
