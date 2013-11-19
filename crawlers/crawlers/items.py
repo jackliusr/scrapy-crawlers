@@ -26,3 +26,18 @@ class PrincipalItem(Item):
   schoolCode = Field()
   name = Field()
   
+class SexauerItem(Item):
+  name = Field()
+  sku = Field()
+  description = Field()
+  image_urls = Field()
+  images=Field()
+  
+  
+class CardItem(Item):
+    name = Field()
+    description = Field()
+    price = Field()    
+    images = Field()
+    image_urls = Field()
+  
