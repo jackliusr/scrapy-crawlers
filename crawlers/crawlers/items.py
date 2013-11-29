@@ -40,4 +40,40 @@ class CardItem(Item):
     price = Field()    
     images = Field()
     image_urls = Field()
+
+class MagazineItem(Item):
+  name = Field()
+  description = Field()
+  category = Field()
+  price = Field()
+  images = Field()
+  image_urls = Field()
   
+class JdItem(Item):
+  #itemid = Field()
+  name = Field()
+  description = Field()
+  category = Field()
+  price = Field()
+  images = Field()
+  image_urls = Field()
+
+class TaoItem(Item):  
+  name = Field()
+  description = Field()
+  category = Field()
+  price = Field()
+  images = Field()
+  image_urls = Field()
+
+
+class VsigoItem(Item):
+  name = Field()
+  description = Field()
+  category = Field()
+  price = Field()
+  images = Field()
+  image_urls = Field()
+
+
+ 

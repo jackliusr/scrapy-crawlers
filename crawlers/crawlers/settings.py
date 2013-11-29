@@ -18,5 +18,7 @@ NEWSPIDER_MODULE = 'crawlers.spiders'
 ITEM_PIPELINES = {
     'scrapy.contrib.pipeline.images.ImagesPipeline':1
     }
-"""
-#IMAGES_STORE = '/home/liusr/crawlers-aft/images/'
+"""    
+
+#IMAGES_STORE = '/home/liusr/scrapy-crawlers/crawlers/images/'
+
