@@ -18,7 +18,14 @@ NEWSPIDER_MODULE = 'crawlers.spiders'
 ITEM_PIPELINES = {
     'scrapy.contrib.pipeline.images.ImagesPipeline':1
     }
-"""    
+"""
+
+
+"""
+DOWNLOADER_MIDDLEWARES = {
+    'scrapyjs.middleware.WebkitDownloader': 1,
+}
+"""
 
 #IMAGES_STORE = '/home/liusr/scrapy-crawlers/crawlers/images/'
 

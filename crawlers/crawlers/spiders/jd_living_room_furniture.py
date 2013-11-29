@@ -16,9 +16,13 @@ class JdLivingRoomFurnitureSpider(CrawlSpider):
 		  'http://list.jd.com/9847-9849-11142-0-0-0-0-0-0-0-1-1-1-1-21-1827-3505-0.html']
 
     rules = (
-        Rule(SgmlLinkExtractor(allow=r'item\.jd\.com/'), callback='parse_item', follow=False),
+        Rule(SgmlLinkExtractor(allow=r'item\.jd\.com/'), callback='parse_item', follow=False,process_request= 'process_request'),
     )
 
+    def process_request(self, request):
+      request.meta['renderjs'] = 1
+      return request
+    
     def parse_item(self, response):
 	sel = Selector(response)
         i = JdItem()
