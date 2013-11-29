@@ -14,7 +14,17 @@ Actually there are other solutions to this kind of issues, However at that time 
 I noticed that message "Filtered offsite request to  'p.3.cn'" in scrapy console during one test. I added the domain into allowed_domains and "Passing additional data to callback functions" works
 
 ## jd-hardware
-Based on BaseSpider
+Based on BaseSpider with "Passing additional data to callback functions". 
 
 ## jd-kitchenware
-Based CrawlSpider
+Based CrawlSpider with "Passing additional data to callback functions"
+
+## jd-living-room-furniture
+Using scrapyjs to solve issue during crawling dynamic content without "Passing additional data to callback functions"
+To run this spiders:
+1. Uncomment DOWNLOADER_MIDDLEWARES in settings.py 
+2. Download scrapyjs(https://github.com/scrapinghub/scrapyjs), and copy scrapyjs folder to crawlers folder
+3. Install prerequisites components for scrapyjs
+* python-gtk2
+* python-webkit
+* python-jswebkit
