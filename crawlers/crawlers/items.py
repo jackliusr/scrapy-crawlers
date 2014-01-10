@@ -75,5 +75,64 @@ class VsigoItem(Item):
   images = Field()
   image_urls = Field()
 
+class Zgka8Item(Item):  
+  name = Field()
+  description = Field()
+  category = Field()
+  price = Field()
+  images = Field()
+  image_urls = Field()
 
- 
+
+class GomeiyaItem(Item):  
+  name = Field()
+  description = Field()
+  category = Field()
+  price = Field()
+  images = Field()
+  image_urls = Field()
+  
+class HezigameItem(Item):  
+  name = Field()
+  description = Field()
+  category = Field()
+  price = Field()
+  images = Field()
+  image_urls = Field()
+
+class GomeItem(Item):  
+  name = Field()
+  description = Field()
+  category = Field()
+  price = Field()
+  images = Field()
+  image_urls = Field()
+  
+class G5173Item(Item):  
+  name = Field()
+  description = Field()
+  category = Field()
+  price = Field()
+  images = Field()
+  image_urls = Field() 
+
+
+
+class VwhouseItem(Item):  
+  name = Field()
+  description = Field()
+  category = Field()
+  price = Field()
+  images = Field()
+  image_urls = Field()
+  
+  
+class GameItem(Item):
+  #itemid = Field()
+  name = Field()
+  description = Field()
+  category = Field()
+  price = Field()
+  images = Field()
+  image_urls = Field()  
+
