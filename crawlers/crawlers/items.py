@@ -136,3 +136,12 @@ class GameItem(Item):
   images = Field()
   image_urls = Field()  
 
+class EduTrustItem(Item):
+  name = Field()
+  website = Field()
+  address = Field()
+  phone = Field()
+  eduTrustType = Field()
+  validityPeriod = Field()
+
+
