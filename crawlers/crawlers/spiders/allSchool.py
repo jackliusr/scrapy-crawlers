@@ -77,6 +77,7 @@ class AllSchoolSpider(BaseSpider):
       item["address"] = sel.xpath("//div[@id='ctl00_schoolDetailContainer_fieldSchoolAddress']/text()").extract()
       item["schoolCode"] = url[-4:]
       item["schoolType"] = response.meta["schoolType"]
+      item["website"] = sel.xpath("//a[@id='ctl00_schoolDetailContainer_fieldSchoolWebsite']/text()").extract()
       yield item    
 
       

@@ -20,7 +20,7 @@ class SchoolItem(Item):
   principal = Field()
   schoolCode = Field()
   schoolType = Field()
-  
+  website = Field()
   
 class PrincipalItem(Item):
   schoolCode = Field()
@@ -138,10 +138,22 @@ class GameItem(Item):
 
 class EduTrustItem(Item):
   name = Field()
-  website = Field()
+  website = Field()  
   address = Field()
   phone = Field()
   eduTrustType = Field()
   validityPeriod = Field()
+  eduTrustPage = Field()
+  institutionType = Field()
+  
+class IboSchoolItem(Item):
+  name = Field()
+  phone = Field()
+  fax = Field()
+  email = Field()
+  address = Field()
+  principal = Field()
+  schoolCode = Field()
+  schoolType = Field()  
 
 
