@@ -1,9 +1,9 @@
+import scrapy
 from scrapy.selector import Selector
-from scrapy.contrib.linkextractors.sgml import SgmlLinkExtractor
-from scrapy.contrib.spiders import CrawlSpider, Rule
+from scrapy.linkextractors import LinkExtractor
+from scrapy.spiders import CrawlSpider, Rule
 from crawlers.items import SexauerItem
 
-import urlparse
  
 class SexauerSpider(CrawlSpider):
     name = 'sexauer'
@@ -11,9 +11,9 @@ class SexauerSpider(CrawlSpider):
     start_urls = ['http://www.sexauer.com/Search/TOOLS/ACCESS-EQUIPMENT']
 
     rules = (        
-        #Rule(SgmlLinkExtractor(allow=['/Search/APPLIANCES'], restrict_xpaths =('//div[@id="new-content-container"]')), callback='parse_cat', follow=True),
-        Rule(SgmlLinkExtractor(allow=['&page=']), callback='parse_page', follow=True),
-        Rule(SgmlLinkExtractor(allow=['/Sku/',]), callback='parse_item', follow=False)
+        #Rule(LinkExtractor(allow=['/Search/APPLIANCES'], restrict_xpaths =('//div[@id="new-content-container"]')), callback='parse_cat', follow=True),
+        Rule(LinkExtractor(allow=['&page=']), callback='parse_page', follow=True),
+        Rule(LinkExtractor(allow=['/Sku/',]), callback='parse_item', follow=False)
     )
     def parse_cat(self, response):
       pass;

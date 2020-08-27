@@ -1,8 +1,8 @@
 from scrapy.selector import Selector
-from scrapy.contrib.linkextractors.sgml import SgmlLinkExtractor
-from scrapy.contrib.spiders import CrawlSpider, Rule
+from scrapy.linkextractors import LinkExtractor
+from scrapy.spiders import CrawlSpider, Rule
 from crawlers.items import CardItem
-import urlparse
+import urllib.parse 
 
 class KaCnSpider(CrawlSpider):
     name = 'ka-cn'
@@ -10,12 +10,12 @@ class KaCnSpider(CrawlSpider):
     start_urls = ['http://www.ka-cn.com/']
 
     rules = (
-        Rule(SgmlLinkExtractor(allow=['category-'],restrict_xpaths = ('//div/h3/a')), callback='parse_cat', follow=True),
-        Rule(SgmlLinkExtractor(allow=['goods-'], restrict_xpaths =('//form/div/ul/li')), callback='parse_good',follow=True),        
+        Rule(LinkExtractor(allow=['category-'],restrict_xpaths = ('//div/h3/a')), callback='parse_cat', follow=True),
+        Rule(LinkExtractor(allow=['goods-'], restrict_xpaths =('//form/div/ul/li')), callback='parse_good',follow=True),        
         )
 
     def parse_cat(self, response):
-	pass
+        pass
    
     def parse_good(self, response):
         hxs = Selector(response)
