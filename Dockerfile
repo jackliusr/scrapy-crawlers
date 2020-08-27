@@ -50,11 +50,12 @@ RUN CHROME_STRING=$(google-chrome --version) \
   && sudo ln -fs /opt/selenium/chromedriver-$CD_VERSION /usr/bin/chromedriver
 
 ENV TERM xterm
-ENV SCRAPY_SETTINGS_MODULE cVehicles.settings
+ENV SCRAPY_SETTINGS_MODULE crawlers.settings
+ENV PYTHONPATH /app
 RUN mkdir -p /app
 WORKDIR /app
 COPY ./requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
-COPY . /app
+COPY ./crawlers /app
 # RUN python setup.py install
 # https://support.scrapinghub.com/support/solutions/articles/22000240310-deploying-custom-docker-image-with-selenium-on-scrapy-cloud
