@@ -28,3 +28,8 @@ To run this spiders:
 * python-gtk2
 * python-webkit
 * python-jswebkit
+
+# docker usage
+```bash
+ docker run  -it --rm --mount type=bind,src=$(pwd)/crawlers,dst=/app   scrapy-selenium /bin/bash
+```

@@ -56,6 +56,7 @@ RUN mkdir -p /app
 WORKDIR /app
 COPY ./requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
-COPY ./crawlers /app
+#COPY ./crawlers /app
+VOLUME [ "/app" ]
 # RUN python setup.py install
 # https://support.scrapinghub.com/support/solutions/articles/22000240310-deploying-custom-docker-image-with-selenium-on-scrapy-cloud

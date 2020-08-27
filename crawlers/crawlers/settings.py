@@ -14,11 +14,9 @@ NEWSPIDER_MODULE = 'crawlers.spiders'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'crawlers (+http://www.yourdomain.com)'
 
-"""
 ITEM_PIPELINES = {
-    'scrapy.contrib.pipeline.images.ImagesPipeline':1
+    'scrapy.pipelines.images.ImagesPipeline':1
     }
-"""
 
 
 """
@@ -27,5 +25,5 @@ DOWNLOADER_MIDDLEWARES = {
 }
 """
 
-#IMAGES_STORE = '/home/liusr/scrapy-crawlers/crawlers/images/'
+IMAGES_STORE = '/app/images/'
 
