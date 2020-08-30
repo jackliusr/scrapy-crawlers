@@ -10,6 +10,10 @@ class DemoSpider(scrapy.Spider):
     name = 'hljtycp'
     start_urls = ['https://www.hljtycp.org.cn/newsList/0101']
 
+    custom_settings = {
+        'DATABASEPIPELINE_ENABLED': True,
+    }
+
     def start_requests(self):
        for i in range(1,2):
            data = {"channelNo":"0101","pageIndex":i,"pageSize":20}
@@ -27,20 +31,29 @@ class DemoSpider(scrapy.Spider):
         sel = Selector(response)
         title = ''.join(sel.xpath("//div[@class=\"n-d-tit\"]//text()").extract()).strip()
         content = ''.join(sel.xpath("//div[@class=\"content-box\"]//text()").extract()).strip()
-        pubTime = sel.xpath("//div[@class=\"news-detail_info\"]/span[1]")[0].extract()
+        pubTime = (sel.xpath("//div[@class=\"news-detail_info\"]/span[1]/text()").extract_first())[3:]
         keywords = sel.xpath("//meta[@name='keywords']/@content")[0].extract()
         description = sel.xpath("//meta[@name='description']/@content")[0].extract()
         image= sel.xpath("//div[@class=\"content-box\"]//img[1]/@src")
-        image_url =""
+        category = 1
         if image:
             image_url = image[0].extract()
-        yield {
-            "title": title,
-            "content": content,
-            "pubTime": pubTime,
-            "keywords": keywords,
-            "description": description,
-            "images": image_url,
-            "image_urls": image_url,
-        }
-        
+            yield {
+                "title": title,
+                "content": content,
+                "pubTime": pubTime,
+                "keywords": keywords,
+                "description": description,
+                'category': category,
+                "images": [image_url],
+                "image_urls": [image_url],
+            }
+        else:
+            yield {
+                "title": title,
+                "content": content,
+                "pubTime": pubTime,
+                "keywords": keywords,
+                "description": description,
+                'category': category,
+            }

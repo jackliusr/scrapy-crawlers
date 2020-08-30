@@ -15,7 +15,8 @@ NEWSPIDER_MODULE = 'crawlers.spiders'
 #USER_AGENT = 'crawlers (+http://www.yourdomain.com)'
 
 ITEM_PIPELINES = {
-    'scrapy.pipelines.images.ImagesPipeline':1
+    'scrapy.pipelines.images.ImagesPipeline':10,
+    'crawlers.pipelines.db.DatabasePipeline': 20,
     }
 
 
@@ -27,3 +28,9 @@ DOWNLOADER_MIDDLEWARES = {
 
 IMAGES_STORE = '/app/images/'
 
+DB_SETTINGS = {
+    'db': 'dedecmsv57utf8sp2',
+    'user': 'root',
+    'password': 'HbLOA5VZK2aUOiBIfLRl',
+    'host': '172.21.0.3'
+}
