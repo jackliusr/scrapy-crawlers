@@ -19,6 +19,7 @@ ITEM_PIPELINES = {
     'crawlers.pipelines.db.DatabasePipeline': 20,
     }
 
+DOWNLOAD_DELAY = 1
 
 """
 DOWNLOADER_MIDDLEWARES = {
@@ -32,5 +33,5 @@ DB_SETTINGS = {
     'db': 'dedecmsv57utf8sp2',
     'user': 'root',
     'password': 'HbLOA5VZK2aUOiBIfLRl',
-    'host': '172.21.0.3'
+    'host': '172.18.0.2'
 }

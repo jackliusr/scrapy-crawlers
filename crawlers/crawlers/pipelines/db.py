@@ -1,6 +1,8 @@
 import mysql.connector
 from scrapy.exceptions import NotConfigured
 from datetime import datetime
+import random
+from dateutil.parser import parse
 
 class DatabasePipeline(object):
     def __init__(self, db, user, passwd, host):
@@ -11,9 +13,10 @@ class DatabasePipeline(object):
 
     def timestamp(self):
         return int(datetime.now().timestamp())
-
+    def timestamp_safe(self, str):
+        return int(parse(str).timestamp())
     def process_item(self, item, spider):
-            category = item['category']
+            category = random.randint(1,9)
             title = item['title']
             keywords = item['keywords']
             desc = item['description']
@@ -21,7 +24,7 @@ class DatabasePipeline(object):
             image_url =  ""
             if len(item['images']) > 0:
                 image_url = f"/uploads/allimg/{item['images'][0]['path']}"
-            ts = self.timestamp()
+            ts = self.timestamp_safe(item['pubTime'])
             sr = self.timestamp()
             sql = "insert into dede_arctiny(`typeid`, `typeid2`, `arcrank`, `channel`, `senddate`, `sortrank`, `mid`) values(%s, %s, %s, %s, %s, %s, %s)"
             val = (category, '0', 0, 1, ts, sr, 1)
