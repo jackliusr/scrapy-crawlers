@@ -5,13 +5,13 @@ import time
 
 class Win310Spider(scrapy.Spider):
     name = "win310"
-    start_urls = ["https://www.310win.com/jingcailanqiu/info_t1sub2page1.html"]
+    start_urls = ["https://www.310win.com/jingcaizuqiu/info_t1sub1page1.html"]
     custom_settings = {
-        'DATABASEPIPELINE_ENABLED': True,
+        'DATABASEPIPELINE_ENABLED': True 
     }
     def start_requests(self):
         for i in range(1,100):
-            yield Request(url=f"https://www.310win.com/jingcailanqiu/info_t1sub2page{i}.html", callback=self.parseList)
+            yield Request(url=f"https://www.310win.com/jingcaizuqiu/info_t1sub1page{i}.html", callback=self.parseList)
 
     def parseList(self, response):
         sel = Selector(response)
@@ -30,7 +30,7 @@ class Win310Spider(scrapy.Spider):
         image= sel.xpath("//div[@class=\"n_zi\"]//img[1]/@src")
         category = 2
         if image:
-            image_url = f"http://lq.7m.com.cn{image[0].extract()}"
+            image_url = f"https://www.310win.com{image[0].extract()}"
             yield {
                 "title": title,
                 "content": content,
