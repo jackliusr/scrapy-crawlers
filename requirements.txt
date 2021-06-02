@@ -19,7 +19,7 @@ itemloaders==1.0.2
 jmespath==0.10.0
 lxml>=4.6.2
 Markdown==3.2.2
-markdown2==2.3.9
+markdown2==2.4.0
 markdownify==0.5.1
 mysql-connector-python==8.0.21
 Naked==0.1.31
